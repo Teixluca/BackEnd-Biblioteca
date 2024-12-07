@@ -115,7 +115,7 @@ namespace ApiBiblioteca.Controllers
                 Autor = "Rachel de Queiroz",
                 Ano = "1930",
                 Quantidade = 1,
-                ImagemUrl = ""
+                ImagemUrl = "https://m.media-amazon.com/images/I/512O2V7xRjL._SY445_SX342_.jpg"
             },
             new LivroModel
             {
@@ -124,7 +124,7 @@ namespace ApiBiblioteca.Controllers
                 Autor = "José Lins do Rego",
                 Ano = "1932",
                 Quantidade = 5,
-                ImagemUrl = ""
+                ImagemUrl = "https://m.media-amazon.com/images/I/71SkheXF9VL._SY466_.jpg"
             },
             new LivroModel
             {
@@ -133,7 +133,7 @@ namespace ApiBiblioteca.Controllers
                 Autor = "João Guimarães Rosa",
                 Ano = "1946",
                 Quantidade = 3,
-                ImagemUrl = ""
+                ImagemUrl = "https://m.media-amazon.com/images/I/51an3EZ2qrL._SX342_SY445_.jpg"
             },
             new LivroModel
             {
@@ -142,17 +142,7 @@ namespace ApiBiblioteca.Controllers
                 Autor = "José Lins do Rego",
                 Ano = "1943",
                 Quantidade = 1,
-                ImagemUrl = ""
-            },
-
-            new LivroModel
-            {
-                Id = 16,
-                Name = "qwd Morto",
-                Autor = "José Lins do Rego",
-                Ano = "1943",
-                Quantidade = 0,
-                ImagemUrl = ""
+                ImagemUrl = "https://m.media-amazon.com/images/I/51SM+a8FuyL._SY445_SX342_.jpg"
             },
 
     };
