@@ -12,7 +12,7 @@ namespace ApiBiblioteca.Model
         public string Autor { get; set; } = string.Empty; 
         public string Ano { get; set; } = string.Empty; 
         public int Quantidade { get; set; }
-        public bool Alugado { get; set; }
+        public int Estoque { get; set; }
         public string? ImagemUrl { get; set; }
     }
 }
