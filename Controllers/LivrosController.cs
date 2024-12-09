@@ -167,6 +167,10 @@ namespace ApiBiblioteca.Controllers
             return Ok(livros);
         }
 
+
+
+
+
         [HttpGet("{id}")]
         public ActionResult<LivroModel>
             StatusLivro(int id)
@@ -179,6 +183,10 @@ namespace ApiBiblioteca.Controllers
             return Ok(pesquisa);
         }
 
+
+
+
+            // API para devolver o livro
         [HttpPost("devolve/{id}")]
         public ActionResult<LivroModel>
             DevolverLivros(int id)
@@ -197,19 +205,27 @@ namespace ApiBiblioteca.Controllers
             }
             
             pesquisa.Quantidade++;
+
+
             return Ok(pesquisa);
 
         }
 
+
+        // API para alugar o livro
         [HttpPost("aluga/{id}")]
         public ActionResult<List<LivroModel>>
             AlugarLivros(int id)
         {
             var pesquisa = livros.Find(x => x.Id == id);
+
+
             if (pesquisa is null)
             {
                 return NotFound("Livro não encontrado");
             }
+
+
             if (pesquisa.Quantidade == 0)
             {
                 return NotFound("Livro esgotado");
@@ -217,6 +233,7 @@ namespace ApiBiblioteca.Controllers
 
             
             pesquisa.Quantidade--;
+
             return Ok(pesquisa);
 
         }
