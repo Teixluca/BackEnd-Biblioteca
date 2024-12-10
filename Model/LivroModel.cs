@@ -14,5 +14,7 @@ namespace ApiBiblioteca.Model
         public int Quantidade { get; set; }
         public int Estoque { get; set; }
         public string? ImagemUrl { get; set; }
+
+        public string AlugadosPara { get; set; } = string.Empty;
     }
 }

@@ -15,9 +15,10 @@ namespace ApiBiblioteca.Controllers
                 Name = "Dom Casmurro",
                 Autor = "Machado de Assis",
                 Ano = "1899",
-                Quantidade = 2, 
+                Quantidade = 2,
                 Estoque = 2,
-                ImagemUrl = "https://images.tcdn.com.br/img/img_prod/1271663/dom_casmurro_edicao_de_luxo_almofadada_89_1_038fb70c564eb50f71ea49f6027e827a.jpg" 
+                AlugadosPara = "",
+                ImagemUrl = "https://images.tcdn.com.br/img/img_prod/1271663/dom_casmurro_edicao_de_luxo_almofadada_89_1_038fb70c564eb50f71ea49f6027e827a.jpg"
             },
             new LivroModel
             {
@@ -147,7 +148,7 @@ namespace ApiBiblioteca.Controllers
                 Ano = "1946",
                 Quantidade = 3,
                 Estoque = 3,
-                ImagemUrl = "https://m.media-amazon.com/images/I/51an3EZ2qrL._SX342_SY445_.jpg"
+                ImagemUrl = "https://m.media-amazon.com/images/I/81VvCG8xXWL._SY522_.jpg"
             },
             new LivroModel
             {
@@ -168,9 +169,6 @@ namespace ApiBiblioteca.Controllers
         }
 
 
-
-
-
         [HttpGet("{id}")]
         public ActionResult<LivroModel>
             StatusLivro(int id)
@@ -183,10 +181,7 @@ namespace ApiBiblioteca.Controllers
             return Ok(pesquisa);
         }
 
-
-
-
-            // API para devolver o livro
+        // API para devolver o livro
         [HttpPost("devolve/{id}")]
         public ActionResult<LivroModel>
             DevolverLivros(int id)
@@ -197,13 +192,13 @@ namespace ApiBiblioteca.Controllers
             {
                 return NotFound("Livro não existe");
             }
-                
+
 
             if (pesquisa.Quantidade >= pesquisa.Estoque)
             {
                 return NotFound("Quantidade maior que estoque");
             }
-            
+
             pesquisa.Quantidade++;
 
 
@@ -231,12 +226,24 @@ namespace ApiBiblioteca.Controllers
                 return NotFound("Livro esgotado");
             }
 
-            
+
             pesquisa.Quantidade--;
 
             return Ok(pesquisa);
 
         }
+
+
+
+        [HttpPost]
+        public ActionResult<LivroModel> AddLivro(LivroModel novo)
+            {
+               if (novo.Id == 0 && livros.Count >0) 
+                novo.Id = livros[livros.Count - 1].Id + 1;
+
+               livros.Add(novo);
+               return Ok(novo);
+            }
 
     }
 }
