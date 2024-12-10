@@ -22,7 +22,7 @@ namespace ApiBiblioteca.Controllers
 
             return Ok(usuarios);
 
-
+            
         }
 
         [HttpGet]
@@ -30,8 +30,6 @@ namespace ApiBiblioteca.Controllers
         {
             return Ok(usuarios);
         }
-
-
 
     }
 }
